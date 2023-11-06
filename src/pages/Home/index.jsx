@@ -1,40 +1,54 @@
 import React from 'react';
+import logo from '../../public/images/logo.jpeg'
+import homemTestando from '../../public/images/homemTestando.png'
+import homemExibindo from '../../public/images/homemExibindo.png'
+import mapaMundi from '../../public/images/mapaMundi.png'
 import { FiUsers, FiEdit, FiMonitor, FiCheckCircle, FiLayout, FiSettings, FiAlertTriangle } from 'react-icons/fi';
 
 function HomePage() {
   return (
-    <div className="bg-gray-100 font-sans">
-      {/* Navbar */}
-      <nav className="bg-white-600 p-4 text-purple">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-4xl font-bold text-yellow-400">Let's Test</h1>
-          <div className="transition transform hover:scale-105">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-purple-700 hover:text-purple-800 py-3 px-6 rounded-full text-lg font-semibold">
-              Acessar
-            </button>
-          </div>
+    <div className="font-sans">
+      <nav className="px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
+        <div className="col-start-1 col-end-3 flex items-center">
+          <img className="w-48 h-auto sm:w-64 sm:h-auto" alt="Logo" src={logo} />
         </div>
-
+        <ul className="hidden lg:flex col-start-4 col-end-10 items-center">
+          <a href="#sobre" className="px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative text-purple-500 animation-active">Sobre</a>
+          <a href="#gerenciamento" className="px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative text-black-500 hover:text-purple-500">Gerenciamento</a>
+          <a href="#funcionalidades" className="px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative text-black-500 hover:text-purple-500">Recursos</a>
+          <a href="#testes" className="px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative text-black-500 hover:text-purple-500">Os Testes</a>
+        </ul>
+        <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
+          <a className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-purple-500 transition-all" href="/">&nbsp; Registrar</a>
+          <button className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-purple-500 text-purple-500 bg-transparent outline-none rounded-l-full rounded-r-full capitalize hover:bg-purple-500 hover:text-white transition-all hover:shadow-purple">
+            Acessar
+          </button>
+        </div>
       </nav>
 
-      {/* Hero Section */}
-      <header className="bg-purple-700 text-white py-20">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-4">Simplifique o Gerenciamento de Testes de Software</h1>
-          <p className="text-lg mb-8">Let's Test é a solução completa para equipes de desenvolvimento de software.</p>
-          <div className="transition transform hover:scale-105">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-purple-700 hover:text-purple-800 py-3 px-6 rounded-full text-lg font-semibold">
-              Comece agora mesmo
-            </button>
+      <div className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto" id="sobre">
+        <div>
+          <div className="grid grid-flow-row sm:grid-flow-col grid-rows-2 md:grid-rows-1 sm:grid-cols-2 gap-8 py-6 sm:py-16">
+            <div className=" flex flex-col justify-center row-start-2 sm:row-start-1">
+              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-black-600 leading-normal">Simplifique o Gerenciamento de <strong>Testes de Software</strong>.</h1>
+              <p className="text-black-500 mt-4 mb-6"><strong>Let's Test</strong> é a solução completa para equipes de testes de software.</p>
+              <button className="font-medium tracking-wide py-5 px-5 sm:px-8 border border-purple-500 text-purple-500 bg-transparent outline-none rounded-l-full rounded-r-full capitalize hover:bg-purple-500 hover:text-white transition-all hover:shadow-purple">
+                Comece agora mesmo
+              </button>
+            </div>
+            <div className="flex w-full">
+              <div className="h-full w-full" >
+                <img alt="Homem testando" src={homemTestando} />
+              </div>
+            </div>
           </div>
         </div>
-      </header>
+      </div>
 
-      {/* Feature Section - Gerenciamento de Projetos */}
-      <section className="bg-gray-100 py-16">
+      <div className="p-10 mt-24 px-8 xl:px-16 mx-auto bg-gray-200" id="gerenciamento">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold text-purple-600 mb-10">Gerenciamento de Projetos</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {generateFeature(
               <div>
                 <div className="text-6xl  mb-6 text-purple-600 text-center">
@@ -75,19 +89,30 @@ function HomePage() {
                 </div>
                 <h3 className="text-3xl font-semibold mb-4">Controle de acessos</h3>
                 <p className="text-gray-600 text-center">
-                  Defina dois níveis de acesso: administrativo e de usuário para garantir segurança e eficiência.
+                  Defina níveis de acesso: crie projeto públicos onde qualquer testador poderá se candidatar a testes e privados onde apenas testadores convidados poderão visualizar os testes.
                 </p>
               </div>
             )}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Feature Section - Recursos de Testes */}
-      <section className="bg-gray-200 py-16">
+      <div className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto" id="funcionalidades">
+        <div className="grid grid-flow-row sm:grid-flow-col grid-cols-1 sm:grid-cols-2 gap-8 p  y-8 my-12">
+          <div className="flex w-full justify-end">
+            <div className="h-full w-full" >
+              <img alt="Homem exibindo" src={homemExibindo} />
+            </div>
+          </div>
+          <div>
+            <div className="flex flex-col items-end justify-center ml-auto w-full lg:w-9/12">
+              <h3 className="text-3xl lg:text-4xl font-medium leading-relaxed text-black-600">Fornecemos muitos recursos que você pode usar</h3>
+              <p className="my-2 text-black-500">Você pode explorar os recursos que oferecemos com diversão e ter suas próprias funções em cada recurso.</p>
+            </div>
+          </div>
+        </div>
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-purple-600 mb-10">Recursos de Testes</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {generateFeature(
               <div>
                 <div className="text-6xl  mb-6 text-purple-600 text-center">
@@ -134,10 +159,26 @@ function HomePage() {
             )}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Feature Section - Candidatar-se a Projetos */}
-      <section className="bg-gray-100 py-16">
+
+      <div className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto" id="sobre">
+        <div>
+          <div className="grid grid-flow-row sm:grid-flow-col grid-rows-2 md:grid-rows-1 sm:grid-cols-2 gap-8 py-6 sm:py-16">
+            <div className=" flex flex-col justify-center row-start-2 sm:row-start-1">
+              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-black-600 leading-normal">Gerencie equipes distribuídas.</h1>
+              <p className="text-black-500 mt-4 mb-6">Independente da localização dos testadores e projetos, gerencie tudo junto.</p>
+            </div>
+            <div className="flex w-full">
+              <div className="h-full w-full" >
+                <img alt="Mapa Mundi" src={mapaMundi} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="p-10 mt-24 px-8 xl:px-16 mx-auto bg-gray-200" id="testes">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold text-purple-600 mb-10">Candidatar-se a Projetos</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -187,9 +228,6 @@ function HomePage() {
             )}
           </div>
         </div>
-      </section>
-
-      <section className="bg-gray-200 py-16">
         <div className="container mx-auto">
           <h2 className="text-4xl text-center font-bold mb-8 text-purple-600">
             As Plataformas Testadas
@@ -217,7 +255,7 @@ function HomePage() {
             )}
           </div>
         </div>
-      </section>
+      </div>
       {/* Footer */}
       <footer className="bg-purple-600 text-white py-8">
         <div className="container mx-auto text-center">
