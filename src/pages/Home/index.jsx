@@ -4,8 +4,21 @@ import homemTestando from '../../public/images/homemTestando.png'
 import homemExibindo from '../../public/images/homemExibindo.png'
 import mapaMundi from '../../public/images/mapaMundi.png'
 import { FiUsers, FiEdit, FiMonitor, FiCheckCircle, FiLayout, FiSettings, FiAlertTriangle } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
+
+
+  const navigate = useNavigate();
+
+  const redirectToLogin = () => {
+    navigate('/login');
+  }
+
+  const redirectToRegister = () => {
+    navigate('/register');
+  }
+
   return (
     <div className="font-sans">
       <nav className="px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
@@ -19,8 +32,8 @@ function HomePage() {
           <a href="#testes" className="px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative text-black-500 hover:text-purple-500">Os Testes</a>
         </ul>
         <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-          <a className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-purple-500 transition-all" href="/">&nbsp; Registrar</a>
-          <button className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-purple-500 text-purple-500 bg-transparent outline-none rounded-l-full rounded-r-full capitalize hover:bg-purple-500 hover:text-white transition-all hover:shadow-purple">
+          <button onClick={redirectToRegister} className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-purple-500 transition-all">&nbsp; Registrar</button>
+          <button onClick={redirectToLogin} className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-purple-500 text-purple-500 bg-transparent outline-none rounded-l-full rounded-r-full capitalize hover:bg-purple-500 hover:text-white transition-all hover:shadow-purple">
             Acessar
           </button>
         </div>
@@ -32,7 +45,7 @@ function HomePage() {
             <div className=" flex flex-col justify-center row-start-2 sm:row-start-1">
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-black-600 leading-normal">Simplifique o Gerenciamento de <strong>Testes de Software</strong>.</h1>
               <p className="text-black-500 mt-4 mb-6"><strong>Let's Test</strong> é a solução completa para equipes de testes de software.</p>
-              <button className="font-medium tracking-wide py-5 px-5 sm:px-8 border border-purple-500 text-purple-500 bg-transparent outline-none rounded-l-full rounded-r-full capitalize hover:bg-purple-500 hover:text-white transition-all hover:shadow-purple">
+              <button onClick={redirectToRegister} className="font-medium tracking-wide py-5 px-5 sm:px-8 border border-purple-500 text-purple-500 bg-transparent outline-none rounded-l-full rounded-r-full capitalize hover:bg-purple-500 hover:text-white transition-all hover:shadow-purple">
                 Comece agora mesmo
               </button>
             </div>
@@ -51,7 +64,7 @@ function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {generateFeature(
               <div>
-                <div className="text-6xl  mb-6 text-purple-600 text-center">
+                <div className="text-6xl mb-6 text-purple-600 text-center">
                   <FiUsers />
                 </div>
                 <h3 className="text-3xl font-semibold mb-4">Organize suas equipes</h3>
@@ -62,7 +75,7 @@ function HomePage() {
             )}
             {generateFeature(
               <div>
-                <div className="text-6xl  mb-6 text-purple-600 text-center">
+                <div className="text-6xl mb-6 text-purple-600 text-center">
                   <FiEdit />
                 </div>
                 <h3 className="text-3xl font-semibold mb-4">Defina modelos de casos de teste</h3>
@@ -73,7 +86,7 @@ function HomePage() {
             )}
             {generateFeature(
               <div>
-                <div className="text-6xl  mb-6 text-purple-600 text-center">
+                <div className="text-6xl mb-6 text-purple-600 text-center">
                   <FiMonitor />
                 </div>
                 <h3 className="text-3xl font-semibold mb-4">Acompanhe o progresso</h3>
@@ -84,7 +97,7 @@ function HomePage() {
             )}
             {generateFeature(
               <div>
-                <div className="text-6xl  mb-6 text-purple-600 text-center">
+                <div className="text-6xl mb-6 text-purple-600 text-center">
                   <FiSettings />
                 </div>
                 <h3 className="text-3xl font-semibold mb-4">Controle de acessos</h3>
@@ -228,7 +241,7 @@ function HomePage() {
             )}
           </div>
         </div>
-        <div className="container mx-auto">
+        <div className="container mx-auto mt-10">
           <h2 className="text-4xl text-center font-bold mb-8 text-purple-600">
             As Plataformas Testadas
           </h2>
@@ -256,6 +269,17 @@ function HomePage() {
           </div>
         </div>
       </div>
+
+      <div class="bg-white p-6 rounded-lg shadow transform transition-transform">
+        <div class="text-center">
+          <p class="text-6xl font-semibold text-purple-600 mb-4">Tá esperando o que?</p>
+          <button onClick={redirectToRegister} class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-full">
+            Comece agora mesmo
+          </button>
+        </div>
+      </div>
+
+
       {/* Footer */}
       <footer className="bg-purple-600 text-white py-8">
         <div className="container mx-auto text-center">
@@ -268,7 +292,7 @@ function HomePage() {
 
 function generateFeature(content) {
   return (
-    <div className="bg-white p-6 rounded-lg shadow">
+    <div className="bg-white p-6 rounded-lg shadow hover:scale-105 cursor-default">
       {content}
     </div>
   );
@@ -276,7 +300,7 @@ function generateFeature(content) {
 
 function generatePlatform(title, description, image) {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl">
+    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 cursor-default">
       <img src={image} alt={title} className="w-32 h-32 mx-auto mb-4" />
       <h3 className="text-2xl font-semibold mb-2 text-purple-600">{title}</h3>
       <p className="text-gray-600">{description}</p>
