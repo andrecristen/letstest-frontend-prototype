@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex h-screen bg-gray-100">
             {/* Sidebar */}
             <nav
-                className={`bg-gray-300 border-r overflow-y-auto transition-all duration-300 ease-in-out ${isMenuOpen ? 'w-64 sm:w-48 ' : 'w-16 sm:w-0'}`}
+                className={`bg-gray-300 border-r overflow-y-auto transition-all duration-300 ease-in-out ${isMenuOpen ? 'w-64 sm:w-48 ' : 'w-0 md:w-16 2xl:w-16 xl:w-16'}`}
                 onMouseEnter={() => setIsMenuOpen(true)}
                 onMouseLeave={() => setIsMenuOpen(false)}
             >
