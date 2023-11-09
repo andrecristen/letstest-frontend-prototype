@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex h-screen bg-gray-100">
             {/* Sidebar */}
             <nav
-                className={`w-16 bg-gray-300 border-r overflow-y-auto transition-all duration-300 ease-in-out ${isMenuOpen ? 'w-64' : 'w-0 lg:w-24'}`}
+                className={`bg-gray-300 border-r overflow-y-auto transition-all duration-300 ease-in-out ${isMenuOpen ? 'w-64 sm:w-48 ' : 'w-16 sm:w-0'}`}
                 onMouseEnter={() => setIsMenuOpen(true)}
                 onMouseLeave={() => setIsMenuOpen(false)}
             >
@@ -66,7 +66,21 @@ const Navbar = () => {
 
                 {/* Conteúdo */}
                 <div className="container mx-auto">
-                    
+                    <div class="sm:hidden">
+                        SM
+                    </div>
+                    <div class="md:hidden">
+                        MD
+                    </div>
+                    <div class="lg:hidden">
+                        LG
+                    </div>
+                    <div class="xl:hidden">
+                        XL
+                    </div>
+                    <div class="2xl:hidden">
+                        2XL
+                    </div>
                 </div>
             </main>
         </div>
