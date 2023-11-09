@@ -12,12 +12,14 @@ export default function LoginPage() {
 
     const redirectToHome = () => {
         navigate('/');
-      }
+    }
+
 
     const submit = async (e) => {
         e.preventDefault();
         setValidatingLogin(true);
         setValidatingLogin(false);
+        navigate('/painel');
     }
 
     return (
