@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex h-screen bg-gray-100">
             {/* Sidebar */}
             <nav
-                className={`bg-gray-300 border-r overflow-y-auto transition-all duration-300 ease-in-out ${isMenuOpen ? 'w-64 sm:w-48 ' : 'w-0 md:w-16 2xl:w-16 xl:w-16'}`}
+                className={`bg-gray-300 border-r overflow-y-auto transition-all duration-100 ease-in-out ${isMenuOpen ? 'w-64' : 'w-0 md:w-16 2xl:w-16'}`}
                 onMouseEnter={() => setIsMenuOpen(true)}
                 onMouseLeave={() => setIsMenuOpen(false)}
             >
@@ -41,14 +41,14 @@ const Navbar = () => {
             {/* Conteúdo principal */}
             <main className="flex-1 flex flex-col overflow-hidden">
                 {/* Cabeçalho */}
-                <header className="w-full bg-white py-4">
-                    <div className="mx-6">
-                        <div className="flex items-center justify-between">
+                <header className="w-full bg-white h-20">
+                    <div className="mr-6 h-full">
+                        <div className="flex items-center justify-between h-full">
                             <button
-                                className="text-gray-500 focus:outline-none"
+                                className="text-gray-500 focus:outline-none w-15 h-full pl-5"
                                 onClick={toggleMenu}
                             >
-                                <FiMenu />
+                                <FiMenu className='text-4xl'/>
                             </button>
                             {/* Logo e outros elementos do cabeçalho */}
                             <img src={logo} alt="Logo" className="h-8" />
