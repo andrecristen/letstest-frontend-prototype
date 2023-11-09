@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../public/images/logo.jpeg'
+import logo from '../../public/images/logo-transparente.png'
 import homemTestando from '../../public/images/homemTestando.png'
 import homemExibindo from '../../public/images/homemExibindo.png'
 import mapaMundi from '../../public/images/mapaMundi.png'
@@ -39,7 +39,7 @@ function HomePage() {
         </div>
       </nav>
 
-      <div className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto" id="sobre">
+      <div className="max-w-screen-xl mt-4 px-8 xl:px-16 mx-auto" id="sobre">
         <div>
           <div className="grid grid-flow-row sm:grid-flow-col grid-rows-2 md:grid-rows-1 sm:grid-cols-2 gap-8 py-6 sm:py-16">
             <div className=" flex flex-col justify-center row-start-2 sm:row-start-1">

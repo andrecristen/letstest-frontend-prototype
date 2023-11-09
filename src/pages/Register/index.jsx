@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../public/images/logo.jpeg'
+import logo from '../../public/images/logo-transparente.png'
 import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
@@ -18,7 +18,7 @@ const RegisterPage = () => {
         <section>
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <div onClick={redirectToHome} className="flex items-center mb-6 text-2xl font-semibold text-purple-600 dark:text-white">
-                    <img className="w-48 h-48 mr-2" src={logo} alt="logo" />
+                    <img className="px-12" src={logo} alt="logo" />
                 </div>
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">

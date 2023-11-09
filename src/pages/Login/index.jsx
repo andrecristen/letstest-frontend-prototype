@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../../public/images/logo.jpeg'
+import logo from '../../public/images/logo-transparente.png'
 
 export default function LoginPage() {
 

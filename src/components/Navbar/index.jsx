@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiMenu, FiBell, FiUser, FiGrid, FiBox, FiList, FiUsers, FiSettings } from 'react-icons/fi';
+import logo from '../../public/images/logo-transparente.png'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,7 +51,7 @@ const Navbar = () => {
                                 <FiMenu />
                             </button>
                             {/* Logo e outros elementos do cabeçalho */}
-                            <img src="/caminho/para/seu/logo.png" alt="Logo" className="h-8" />
+                            <img src={logo} alt="Logo" className="h-8" />
                             <div className="space-x-4">
                                 <button>
                                     <FiBell className="text-gray-500" />
