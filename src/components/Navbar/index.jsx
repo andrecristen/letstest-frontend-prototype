@@ -69,7 +69,7 @@ const Navbar = (props) => {
                 </header>
 
                 {/* Conteúdo */}
-                <div className="px-2 overflow-auto">
+                <div className="px-2 mb-10 overflow-auto">
                     {props.children}
                 </div>
             </main>
