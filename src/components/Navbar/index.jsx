@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiMenu, FiBell, FiUser, FiGrid, FiBox, FiList, FiUsers, FiSettings } from 'react-icons/fi';
+import { FiMenu, FiBell, FiUser, FiGrid, FiGitPullRequest, FiPlay, FiSearch } from 'react-icons/fi';
 import logo from '../../public/images/logo-transparente.png'
 
 const Navbar = () => {
@@ -14,26 +14,27 @@ const Navbar = () => {
             {/* Sidebar */}
             <nav
                 className={`bg-gray-300 border-r overflow-y-auto transition-all duration-100 ease-in-out ${isMenuOpen ? 'w-64' : 'w-0 md:w-16 2xl:w-16'}`}
-                onMouseEnter={() => setIsMenuOpen(true)}
-                onMouseLeave={() => setIsMenuOpen(false)}
             >
-                <div className="p-4 space-y-4">
-                    {/* Ícones dos itens do menu */}
-                    <a href="#" className="block hover:bg-gray-400 rounded-lg flex items-center">
-                        <FiGrid className="ml-2 w-12 h-12" />
+                <div className="p-2 space-y-8">
+                    <a title="Dashboard" href="#" className="block hover:bg-gray-400 rounded-lg flex items-center">
+                        <FiGrid className="w-12 h-12" />
                         {isMenuOpen && <span className="ml-2">Dashboard</span>}
                     </a>
-                    <a href="#" className="block hover:bg-gray-400 rounded-lg flex items-center">
-                        <FiBox className="ml-2 w-12 h-12" />
-                        {isMenuOpen && <span className="ml-2">Produtos</span>}
+                    <a title="Gerenciar Projetos" href="#" className="block hover:bg-gray-400 rounded-lg flex items-center">
+                        <FiGitPullRequest className="w-12 h-12" />
+                        {isMenuOpen && <span className="ml-2">Gerenciar Projetos</span>}
                     </a>
-                    <a href="#" className="block hover:bg-gray-400 rounded-lg flex items-center">
-                        <FiList className="ml-2 w-12 h-12" />
-                        {isMenuOpen && <span className="ml-2">Pedidos</span>}
+                    <a title="Testar Projetos" href="#" className="block hover:bg-gray-400 rounded-lg flex items-center">
+                        <FiPlay className=" w-12 h-12" />
+                        {isMenuOpen && <span className="ml-2">Testar Projetos</span>}
                     </a>
-                    <a href="#" className="block hover:bg-gray-400 rounded-lg flex items-center">
-                        <FiUsers className="ml-2 w-12 h-12" />
-                        {isMenuOpen && <span className="ml-2">Clientes</span>}
+                    <a title="Encontrar Projetos" href="#" className="block hover:bg-gray-400 rounded-lg flex items-center">
+                        <FiSearch className="w-12 h-12" />
+                        {isMenuOpen && <span className="ml-2">Encontrar Projetos</span>}
+                    </a>
+                    <a title="Perfil" href="#" className="block hover:bg-gray-400 rounded-lg flex items-center">
+                        <FiUser className="w-12 h-12" />
+                        {isMenuOpen && <span className="ml-2">Perfil</span>}
                     </a>
                 </div>
             </nav>
