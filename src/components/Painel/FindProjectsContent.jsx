@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/Navbar';
 
-const PainelPage = (props) => {
-
+const FindProjects = () => {
 
   const navigate = useNavigate();
 
@@ -18,13 +16,9 @@ const PainelPage = (props) => {
 
   return (
     <>
-      <React.StrictMode>
-        <Navbar>
-          {props.children}
-        </Navbar>
-      </React.StrictMode>
+      <strong>Encontrar Projetos</strong>
     </>
   );
 };
 
-export default PainelPage;
+export default FindProjects;
