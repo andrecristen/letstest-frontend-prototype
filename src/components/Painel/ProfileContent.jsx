@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FiMenu, FiBell, FiUser, FiGrid, FiGitPullRequest, FiPlay, FiSearch, FiSmartphone, FiPower } from 'react-icons/fi';
 
 const Profile = () => {
 
@@ -16,30 +17,29 @@ const Profile = () => {
 
   return (
     <>
-      <div className="flex flex-col bg-gray-100 dark:bg-gray-700 shadow-xl overflow-y-scroll">
+      <div className="flex flex-col bg-gray-100 shadow-xl overflow-y-scroll">
 
         <div className="bg-purple-300 shadow-lg pb-3 rounded-b-3xl">
           <div
-            className="flex  rounded-b-3xl bg-gray-100 dark:bg-gray-700 space-y-5 flex-col items-center py-7">
+            className="flex  rounded-b-3xl bg-gray-100 space-y-5 flex-col items-center py-7">
             <img className="h-28 w-28 rounded-full"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAhk-uNWspnBZzswphhb_F5_MOGZBmWmTxcNbAIYn6OQ&s"
               alt="User" />
             <a href="#"> <span
               className="text-h1">André</span></a>
           </div>
-          <div
-            className="grid px-7 py-2  items-center justify-around grid-cols-3 gap-4 divide-x divide-solid ">
+          <div className="grid px-7 py-2 items-center justify-around grid-cols-3 gap-4 divide-x divide-solid">
             <div className="col-span-1 flex flex-col items-center ">
-              <span className="text-2xl font-bold dark:text-gray-500">4</span>
+              <span className="text-2xl font-bold">4</span>
               <span className="text-lg font-medium 0">Dispostivos</span>
             </div>
             <div className="col-span-1 px-3 flex flex-col items-center ">
-              <span className="text-2xl font-bold dark:text-gray-500">
+              <span className="text-2xl font-bold">
                 3</span>
-              <span className="text-lg font-medium">Projetos Abertos</span>
+              <span className="text-lg font-medium">Projetos Gerenciados</span>
             </div>
             <div className="col-span-1 px-3 flex flex-col items-center ">
-              <span className="text-2xl font-bold dark:text-gray-500">
+              <span className="text-2xl font-bold">
                 40</span>
               <span className="text-lg font-medium">Projetos Testados</span>
             </div>
@@ -48,52 +48,21 @@ const Profile = () => {
         </div>
 
         <div
-          className="grid rounded-2xl divide-y divide-dashed hover:divide-solid  justify-evenly bg-gray-50 dark:bg-gray-300 m-3 mt-10 grid-cols-3">
-          <div className="col-span-1  p-3">
-            <div className="flex flex-col items-center ">
-              <a href=""> <button
-                className="tr-300">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  className="h-14 w-14 text-gray-500" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor"
-                  stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="text-lg font-medium">Alterar Dados</span>
-              </button></a>
-            </div>
+          className="grid rounded-2xl divide-y divide-dashed hover:divide-solid  justify-evenly bg-gray-50 dark:bg-gray-300 m-3 mt-10 grid-cols-1">
+          <div className="col-span-1 p-3">
+            <button class="w-full text-purple-500 bg-transparent border border-solid border-purple-500 hover:bg-purple-500 hover:text-white active:bg-purple-600 font-bold uppercase px-8 py-3 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+              <FiUser className="w-12 h-12" /> Alterar Dados
+            </button>
           </div>
-          <div className="col-span-1  p-3">
-            <div className="flex flex-col items-center ">
-              <a href="">
-                <button className="tr-300">
-                  <svg xmlns="http://www.w3.org/2000/svg"
-                    className="h-14 w-14 text-gray-500" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor"
-                    stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                  </svg>
-                  <span className="text-lg font-medium">Gerenciar Dispositivos</span>
-                </button>
-              </a>
-            </div>
+          <div className="col-span-1 p-3">
+            <button class="w-full text-purple-500 bg-transparent border border-solid border-purple-500 hover:bg-purple-500 hover:text-white active:bg-purple-600 font-bold uppercase px-8 py-3 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+              <FiSmartphone className="w-12 h-12" /> Gerenciar Dispositivos
+            </button>
           </div>
-          <div className="col-span-1  p-3">
-            <div className="flex flex-col items-center ">
-              <a href=""> <button
-                className="tr-300">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  className="h-14 w-14 text-gray-500" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor"
-                  stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
-                </svg>
-                <span className="text-lg font-medium">Gerenciar Experiencias</span>
-              </button></a>
-            </div>
+          <div className="col-span-1 p-3">
+            <button class="w-full text-purple-500 bg-transparent border border-solid border-purple-500 hover:bg-purple-500 hover:text-white active:bg-purple-600 font-bold uppercase px-8 py-3 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+              <FiPower className="w-12 h-12" /> Gerenciar Competências
+            </button>
           </div>
         </div>
       </div>
