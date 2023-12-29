@@ -198,7 +198,7 @@ const FindProjects = () => {
           <option value="null">Híbrido</option>
         </select>
       </div>
-      <div className="px-6 lg:px-8">
+      <div className="px-6 lg:px-8 mb-4">
         <div className="mx-auto mt-2 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {projects.map((project) => (
             <article key={project.id} className="border rounded-lg p-2 border-purple-600 flex max-w-xl flex-col items-start justify-between">
