@@ -2,7 +2,7 @@ import React, { Fragment, useRef, useState, useImperativeHandle } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 const FormDialog = React.forwardRef((props, ref) => {
-    const [dialogVisible, setDialogVisible] = useState(props.initialOpen ?? true);
+    const [dialogVisible, setDialogVisible] = useState(props.initialOpen ?? false);
     const cancelButtonRef = useRef(null);
 
     useImperativeHandle(ref, () => ({

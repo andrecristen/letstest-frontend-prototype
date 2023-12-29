@@ -29,7 +29,7 @@ const OwnerProjects = () => {
     {
       name: 'Meu Projeto 1',
       description: 'Avaliação da segurança de um sistema web por meio de testes de penetração, identificação e correção de vulnerabilidades para garantir a proteção dos dados e a integridade do sistema.',
-      type: 'Web',
+      application: { name: "Web", id: 1 },
       percentage: 95,
       status: {
         id: 1,
@@ -41,7 +41,7 @@ const OwnerProjects = () => {
     {
       name: 'Meu Projeto 2',
       description: 'Realização de testes de aceitação do usuário para uma plataforma de comércio eletrônico, assegurando que as funcionalidades atendam às expectativas dos usuários finais e proporcionem uma experiência de compra satisfatória.',
-      type: 'Web',
+      application: { name: "Web", id: 1 },
       percentage: 78,
       status: {
         id: 1,
@@ -53,7 +53,7 @@ const OwnerProjects = () => {
     {
       name: 'Meu Projeto 3',
       description: 'Realização de testes abrangentes em um aplicativo móvel para garantir sua funcionalidade, desempenho e usabilidade em diferentes dispositivos e sistemas operacionais móveis.',
-      type: 'App',
+      application: { name: "App", id: 3 },
       percentage: 34,
       status: {
         id: 1,
@@ -65,7 +65,7 @@ const OwnerProjects = () => {
     {
       name: 'Meu Projeto 4',
       description: 'Verificação da integração harmoniosa de diferentes módulos em um sistema ERP (Enterprise Resource Planning), garantindo que os dados sejam consistentes e fluam corretamente entre os departamentos da organização.',
-      type: 'Desktop',
+      application: { name: "Desktop", id: 2 },
       percentage: 100,
       status: {
         id: 2,
@@ -77,7 +77,7 @@ const OwnerProjects = () => {
     {
       name: 'Meu Projeto 5',
       description: 'Validar a compatibilidade de uma aplicação web em diversos navegadores (Chrome, Firefox, Safari, etc.) e em diferentes versões, assegurando uma experiência consistente para os usuários independentemente do navegador utilizado.',
-      type: 'Web',
+      application: { name: "Web", id: 1 },
       percentage: 10,
       status: {
         id: 3,
@@ -94,6 +94,14 @@ const OwnerProjects = () => {
     }
     setFormData([]);
     setIsModalNew(true);
+  }
+
+  const handleClickEditProject = (project) => {
+    setFormData(project);
+    if (formDialogRef.current) {
+      formDialogRef.current.openDialog();
+    }
+    setIsModalNew(false);
   }
 
   const handleChangeFormData = (e) => {
@@ -162,7 +170,7 @@ const OwnerProjects = () => {
                             </div>
                           </td>
                           <td className="pr-0 text-center">
-                            <span className="font-semibold text-light-inverse text-md/normal">{project.type}</span>
+                            <span className="font-semibold text-light-inverse text-md/normal">{project.application.name}</span>
                           </td>
                           <td className="pr-0 text-center">
                             <span className="text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">
@@ -185,7 +193,7 @@ const OwnerProjects = () => {
                                 <FiActivity className="w-6 h-6" />
                               </span>
                             </button>
-                            <button title="Editar" className="m-1 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-purple-700">
+                            <button onClick={() => { handleClickEditProject(project) }} title="Editar" className="m-1 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-purple-700">
                               <span className="flex items-center justify-center p-2 leading-none shrink-0 ">
                                 <FiEdit className="w-6 h-6" />
                               </span>
@@ -222,6 +230,7 @@ const OwnerProjects = () => {
             id="description"
             name="description"
             type="text"
+            rows="5"
             required
             value={formData.description}
             onChange={handleChangeFormData}
@@ -234,7 +243,7 @@ const OwnerProjects = () => {
             id="application"
             name="application"
             required
-            value={formData.application}
+            value={formData.application ? formData.application.id : formData.application = {}}
             onChange={handleChangeFormData}
             className="rounded w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm"
             placeholder="Aplicação"
@@ -253,7 +262,6 @@ const OwnerProjects = () => {
             name="logo"
             type="file"
             required
-            value={formData.logo}
             onChange={handleChangeFormData}
             className="rounded w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm"
             placeholder="Logo"
