@@ -5,6 +5,8 @@ import FormDialog from '../Forms/Dialog';
 
 const OwnerProjects = () => {
 
+  const navigate = useNavigate();
+
   const formDialogRef = useRef(null);
 
   const [selectedSituation, setSelectedSituation] = useState(1);
@@ -27,6 +29,7 @@ const OwnerProjects = () => {
 
   const projects = [
     {
+      id: 1,
       name: 'Meu Projeto 1',
       description: 'Avaliação da segurança de um sistema web por meio de testes de penetração, identificação e correção de vulnerabilidades para garantir a proteção dos dados e a integridade do sistema.',
       application: { name: "Web", id: 1 },
@@ -39,6 +42,7 @@ const OwnerProjects = () => {
       logo: "https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
     },
     {
+      id: 2,
       name: 'Meu Projeto 2',
       description: 'Realização de testes de aceitação do usuário para uma plataforma de comércio eletrônico, assegurando que as funcionalidades atendam às expectativas dos usuários finais e proporcionem uma experiência de compra satisfatória.',
       application: { name: "Web", id: 1 },
@@ -51,6 +55,7 @@ const OwnerProjects = () => {
       logo: "https://softdesign.com.br/wp-content/webpc-passthru.php?src=https://softdesign.com.br/wp-content/uploads/2020/02/Software-Testing-1024x576-1.png&nocache=1"
     },
     {
+      id: 3,
       name: 'Meu Projeto 3',
       description: 'Realização de testes abrangentes em um aplicativo móvel para garantir sua funcionalidade, desempenho e usabilidade em diferentes dispositivos e sistemas operacionais móveis.',
       application: { name: "App", id: 3 },
@@ -63,6 +68,7 @@ const OwnerProjects = () => {
       logo: "https://e7.pngegg.com/pngimages/865/632/png-clipart-mobile-application-testing-software-testing-test-automation-mobile-app-development-android-text-logo.png"
     },
     {
+      id: 4,
       name: 'Meu Projeto 4',
       description: 'Verificação da integração harmoniosa de diferentes módulos em um sistema ERP (Enterprise Resource Planning), garantindo que os dados sejam consistentes e fluam corretamente entre os departamentos da organização.',
       application: { name: "Desktop", id: 2 },
@@ -75,6 +81,7 @@ const OwnerProjects = () => {
       logo: "https://img.freepik.com/vetores-premium/teste-de-software-com-ilustracao-vetorial-de-desenho-animado-de-computador-desktop-isolada_181313-3191.jpg?w=2000"
     },
     {
+      id: 5,
       name: 'Meu Projeto 5',
       description: 'Validar a compatibilidade de uma aplicação web em diversos navegadores (Chrome, Firefox, Safari, etc.) e em diferentes versões, assegurando uma experiência consistente para os usuários independentemente do navegador utilizado.',
       application: { name: "Web", id: 1 },
@@ -89,6 +96,7 @@ const OwnerProjects = () => {
   ]
 
   const handleClickNewProject = () => {
+    console.log("New");
     if (formDialogRef.current) {
       formDialogRef.current.openDialog();
     }
@@ -96,12 +104,22 @@ const OwnerProjects = () => {
     setIsModalNew(true);
   }
 
-  const handleClickEditProject = (project) => {
+  const handleClickEditProject = (event, project) => {
+    console.log("Edit", event);
+    event.preventDefault();
+    event.stopPropagation();
     setFormData(project);
     if (formDialogRef.current) {
       formDialogRef.current.openDialog();
     }
     setIsModalNew(false);
+  }
+
+  const handleClickManageProject = (event, project) => {
+    console.log("Manage", event);
+    event.preventDefault();
+    event.stopPropagation();
+    navigate('/painel/manage-project/' + project.id);
   }
 
   const handleChangeFormData = (e) => {
@@ -155,7 +173,7 @@ const OwnerProjects = () => {
                   <tbody className="m-2">
                     {projects.filter((currentProject) => (currentProject.status.id == selectedSituation || selectedSituation == null)).map((project) => (
                       <>
-                        <tr className="border-b last:border-b-0 hover:bg-gray-200 cursor-pointer">
+                        <tr className="border-b last:border-b-0 hover:bg-gray-200 cursor-pointer" onClick={(event) => { handleClickManageProject(event, project) }}>
                           <td className="p-3">
                             <div className="flex items-center">
                               <div className="relative inline-block shrink-0 rounded-2xl me-3">
@@ -188,12 +206,12 @@ const OwnerProjects = () => {
                             </span>
                           </td>
                           <td className="pr-3 text-center">
-                            <button title="Casos de Testes" className="m-1 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-purple-700">
+                            <button onClick={(event) => { handleClickManageProject(event, project) }} title="Gerenciar" className="m-1 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-purple-700">
                               <span className="flex items-center justify-center p-2 leading-none shrink-0 ">
                                 <FiActivity className="w-6 h-6" />
                               </span>
                             </button>
-                            <button onClick={() => { handleClickEditProject(project) }} title="Editar" className="m-1 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-purple-700">
+                            <button onClick={(event) => { handleClickEditProject(event, project) }} title="Editar" className="m-1 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-purple-700">
                               <span className="flex items-center justify-center p-2 leading-none shrink-0 ">
                                 <FiEdit className="w-6 h-6" />
                               </span>
