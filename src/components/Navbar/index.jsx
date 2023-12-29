@@ -56,7 +56,7 @@ const Navbar = (props) => {
             >
                 <div className="space-y-8">
                     {menus.map((menu) => (
-                        <a title={menu.name} onClick={() => { onClickMenu(menu.route) }} href="#" className={"p-2 block hover:bg-purple-600 hover:text-white flex items-center " + (menu.route == menuSelected ? "bg-purple-600 text-white": "")}>
+                        <a title={menu.name} onClick={() => { onClickMenu(menu.route) }} href="#" className={"p-2 hover:bg-purple-600 hover:text-white flex items-center " + (menu.route == menuSelected ? "bg-purple-600 text-white": "")}>
                             {menu.icon}
                             {isMenuOpen && <span className="ml-2">{menu.name}</span>}
                         </a>

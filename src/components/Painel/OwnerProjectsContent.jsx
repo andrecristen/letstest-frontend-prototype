@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { FiActivity, FiEdit } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import FormDialog from '../Forms/Dialog';
 
 const OwnerProjects = () => {
 
+  const formDialogRef = useRef(null);
+
   const [selectedSituation, setSelectedSituation] = useState(1);
+  const [isModalNew, setIsModalNew] = useState(false);
+  const [formData, setFormData] = useState({});
 
   const situations = [
     { name: "Testando", id: 1 },
     { name: "Finalizado", id: 2 },
     { name: "Cancelado", id: 3 },
     { name: "Todos", id: null },
+  ];
+
+  const applications = [
+    { name: "Web", id: 1 },
+    { name: "Desktop", id: 2 },
+    { name: "App", id: 3 },
+    { name: "Híbrido", id: 4 },
   ];
 
   const projects = [
@@ -76,12 +88,35 @@ const OwnerProjects = () => {
     },
   ]
 
+  const handleClickNewProject = () => {
+    if (formDialogRef.current) {
+      formDialogRef.current.openDialog();
+    }
+    setFormData([]);
+    setIsModalNew(true);
+  }
+
+  const handleChangeFormData = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmitProject = async (e) => {
+    console.log(formData);
+    e.preventDefault();
+    formDialogRef.current.closeDialog();
+  };
+
   return (
     <>
       <div className="my-4 px-2 flex justify-end items-stretch flex-wrap pb-0 bg-transparent">
         <button
           type="button"
           className="py-2 px-12 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+          onClick={handleClickNewProject}
         >
           Criar Novo
         </button>
@@ -166,6 +201,65 @@ const OwnerProjects = () => {
           </div>
         </div>
       </div>
+      <FormDialog
+        ref={formDialogRef}
+        submit={handleSubmitProject}
+        title={(isModalNew ? "Novo" : "Alterar") + " Projeto"}>
+        <div className="py-2">
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            value={formData.name}
+            onChange={handleChangeFormData}
+            className="rounded w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm"
+            placeholder="Nome"
+          />
+        </div>
+        <div className="py-2">
+          <textarea
+            id="description"
+            name="description"
+            type="text"
+            required
+            value={formData.description}
+            onChange={handleChangeFormData}
+            className="rounded w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm"
+            placeholder="Descrição"
+          />
+        </div>
+        <div className="py-2">
+          <select
+            id="application"
+            name="application"
+            required
+            value={formData.application}
+            onChange={handleChangeFormData}
+            className="rounded w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm"
+            placeholder="Aplicação"
+          >
+            <option value="null">Selecione a aplicação do projeto</option>
+            {applications.map((application) => {
+              return (
+                <option value={application.id}>{application.name}</option>
+              );
+            })}
+          </select>
+        </div>
+        <div className="py-2">
+          <input
+            id="logo"
+            name="logo"
+            type="file"
+            required
+            value={formData.logo}
+            onChange={handleChangeFormData}
+            className="rounded w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm"
+            placeholder="Logo"
+          />
+        </div>
+      </FormDialog>
     </>
   );
 };
