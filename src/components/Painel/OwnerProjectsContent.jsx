@@ -96,7 +96,6 @@ const OwnerProjects = () => {
   ]
 
   const handleClickNewProject = () => {
-    console.log("New");
     if (formDialogRef.current) {
       formDialogRef.current.openDialog();
     }
@@ -105,7 +104,6 @@ const OwnerProjects = () => {
   }
 
   const handleClickEditProject = (event, project) => {
-    console.log("Edit", event);
     event.preventDefault();
     event.stopPropagation();
     setFormData(project);
@@ -116,7 +114,6 @@ const OwnerProjects = () => {
   }
 
   const handleClickManageProject = (event, project) => {
-    console.log("Manage", event);
     event.preventDefault();
     event.stopPropagation();
     navigate('/painel/manage-project/' + project.id);
