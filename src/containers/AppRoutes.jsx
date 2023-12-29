@@ -24,6 +24,12 @@ const AppRoutes = () => {
                 <Route exact path="/painel" element={<PainelPage><Dashboard /></PainelPage>}></Route>
                 <Route exact path="/painel/my-owner-projects" element={<PainelPage><OwnerProjects /></PainelPage>}></Route>
                 <Route exact path="/painel/manage-project/:id" element={<PainelPage><ManageProject /></PainelPage>}></Route>
+                <Route exact path="/painel/manage-project/users/:id/testers" element={<PainelPage><ManageProject /></PainelPage>}></Route>
+                <Route exact path="/painel/manage-project/users/:id/managers" element={<PainelPage><ManageProject /></PainelPage>}></Route>
+                <Route exact path="/painel/manage-project/test-cases/:id" element={<PainelPage><ManageProject /></PainelPage>}></Route>
+                <Route exact path="/painel/manage-project/environments/:id" element={<PainelPage><ManageProject /></PainelPage>}></Route>
+                <Route exact path="/painel/manage-project/dashboard/:id" element={<PainelPage><ManageProject /></PainelPage>}></Route>
+                <Route exact path="/painel/manage-project/kanban/:id" element={<PainelPage><ManageProject /></PainelPage>}></Route>
                 <Route exact path="/painel/my-test-projects" element={<PainelPage><TestProjects /></PainelPage>}></Route>
                 <Route exact path="/painel/find-new-projects" element={<PainelPage><FindProjects /></PainelPage>}></Route>
                 <Route exact path="/painel/profile" element={<PainelPage><Profile /></PainelPage>}></Route>

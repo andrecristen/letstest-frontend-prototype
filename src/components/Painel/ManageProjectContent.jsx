@@ -1,7 +1,14 @@
 import React from 'react';
-import { FiEdit, FiFileText, FiTrello, FiUser, FiUserMinus, FiUserPlus } from 'react-icons/fi';
+import { FiEdit, FiFileText, FiPieChart, FiSmartphone, FiTrello, FiUser, FiUserPlus } from 'react-icons/fi';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ManageProject = () => {
+
+    let { id } = useParams();
+
+    console.log(id);
+
+    const navigate = useNavigate();
 
     const project = {
         id: 1,
@@ -17,11 +24,31 @@ const ManageProject = () => {
         logo: "https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
     };
 
-    const onClickEdit = (project) => {
-
+    const callListTesters = () => {
+        navigate("/painel/manage-project/users/" + project.id + "/testers");
     }
 
-    const handleAction = (project) => {
+    const callListManagers = () => {
+        navigate("/painel/manage-project/users/" + project.id + "/managers");
+    }
+
+    const callListTestCases = () => {
+        navigate("/painel/manage-project/test-cases/" + project.id);
+    }
+
+    const callListEnvironments = () => {
+        navigate("/painel/manage-project/environments/" + project.id);
+    }
+
+    const callListKanban = () => {
+        navigate("/painel/manage-project/kanban/" + project.id);
+    }
+
+    const callListDashboard = () => {
+        navigate("/painel/manage-project/dashboard/" + project.id);
+    }
+
+    const onClickEdit = () => {
 
     }
 
@@ -60,22 +87,30 @@ const ManageProject = () => {
                 <h2 className="text-4xl text-center font-bold mb-8 text-purple-600">
                     Operações
                 </h2>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gray-500 cursor-default">
-                        <FiUser className="w-20 h-20 mx-auto mb-4" />
-                        <h3 className="text-center text-2xl font-semibold mb-2 text-purple-600">Testadores</h3>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gray-500 cursor-default">
-                        <FiUserPlus className="w-20 h-20 mx-auto mb-4" />
-                        <h3 className="text-center text-2xl font-semibold mb-2 text-purple-600">Gerentes</h3>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gray-500 cursor-default">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div onClick={callListTestCases} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gray-500 cursor-pointer border border-purple-500">
                         <FiFileText className="w-20 h-20 mx-auto mb-4" />
                         <h3 className="text-center text-2xl font-semibold mb-2 text-purple-600">Casos de Teste</h3>
                     </div>
-                    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gray-500 cursor-default">
+                    <div onClick={callListKanban} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gray-500 cursor-pointer border border-purple-500">
                         <FiTrello className="w-20 h-20 mx-auto mb-4" />
                         <h3 className="text-center text-2xl font-semibold mb-2 text-purple-600">Kanban</h3>
+                    </div>
+                    <div onClick={callListTesters} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gray-500 cursor-pointer border border-purple-500">
+                        <FiUser className="w-20 h-20 mx-auto mb-4" />
+                        <h3 className="text-center text-2xl font-semibold mb-2 text-purple-600">Testadores</h3>
+                    </div>
+                    <div onClick={callListManagers} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gray-500 cursor-pointer border border-purple-500">
+                        <FiUserPlus className="w-20 h-20 mx-auto mb-4" />
+                        <h3 className="text-center text-2xl font-semibold mb-2 text-purple-600">Gerentes</h3>
+                    </div>
+                    <div onClick={callListEnvironments} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gray-500 cursor-pointer border border-purple-500">
+                        <FiSmartphone className="w-20 h-20 mx-auto mb-4" />
+                        <h3 className="text-center text-2xl font-semibold mb-2 text-purple-600">Ambientes</h3>
+                    </div>
+                    <div onClick={callListDashboard} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gray-500 cursor-pointer border border-purple-500">
+                        <FiPieChart className="w-20 h-20 mx-auto mb-4" />
+                        <h3 className="text-center text-2xl font-semibold mb-2 text-purple-600">Dashboard</h3>
                     </div>
                 </div>
             </div>

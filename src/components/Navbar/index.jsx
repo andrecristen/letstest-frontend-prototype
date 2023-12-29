@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FiMenu, FiBell, FiUser, FiGrid, FiGitPullRequest, FiPlay, FiSearch } from 'react-icons/fi';
+import { FiMenu, FiBell, FiUser, FiGitPullRequest, FiPlay, FiSearch, FiPieChart } from 'react-icons/fi';
 import logo from '../../public/images/logo-transparente.png'
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ const Navbar = (props) => {
         {
             name: "Dashboard",
             route: "/painel",
-            icon: <FiGrid className="w-12 h-12" />
+            icon: <FiPieChart className="w-12 h-12" />
         },
         {
             name: "Gerenciar Projetos",
@@ -90,7 +90,7 @@ const Navbar = (props) => {
                 </header>
 
                 {/* Conteúdo */}
-                <div className="px-2 mb-10 overflow-auto">
+                <div className="px-2 mb-10 overflow-auto lg:mb-0">
                     {props.children}
                 </div>
             </main>
